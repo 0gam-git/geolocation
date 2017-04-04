@@ -17,20 +17,10 @@
 	src="https://maps.google.com/maps/api/js?key=AIzaSyBL2BXy9dE5NdOTkfYBwENB4Z7Lx6E5GHw"></script>
 </head>
 
-<style>
-#myLocationInfo {
-	float: left;
-	margin: 5px;
-	padding: 15px;
-	max-width: 300px;
-	height: 300px;
-	border: 1px solid black;
-}
-</style>
 <body>
 	<h1>HTML5 Geolocation API - detail</h1>
 
-	<div id="myLocationInfo"></div>
+	<h4 id="myLocationInfo"></h4>
 	<br />
 
 	<div id="google_map" style="width: 100%; height: 100%;"></div>
