@@ -5,9 +5,9 @@ Map.prototype.initializeGoogleMap = function(latitude, longtitude) {
 	if ($("#google_map").length) {
 
 		var mapOptions = {
-			zoom : 16,
+			zoom : 20,
 			center : new google.maps.LatLng(latitude, longtitude),
-			scrollwheel : true,
+			scrollwheel : false,
 			mapTypeControl : false,
 		};
 
