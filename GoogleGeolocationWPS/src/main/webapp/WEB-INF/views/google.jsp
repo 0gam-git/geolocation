@@ -16,7 +16,7 @@
 	<h1>Google Geolocation API</h1>
 
 	<p id="msg">${returnJson}</p>
-	<div id="google_map" style="width: 840px; height: 620px;"></div>
+	<div id="google_map" style="width: 100%; height: 620px;"></div>
 
 
 	<input type="hidden" id="latitude" value="${latitude}" />

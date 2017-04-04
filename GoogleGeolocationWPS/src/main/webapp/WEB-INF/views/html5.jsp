@@ -20,7 +20,7 @@
 
 	<p id="latitude">${latitude}</p>
 	<p id="longitude">${longitude}</p>
-	<div id="google_map" style="width: 840px; height: 620px;"></div>
+	<div id="google_map" style="width: 100%; height: 620px;"></div>
 
 
 </body>
