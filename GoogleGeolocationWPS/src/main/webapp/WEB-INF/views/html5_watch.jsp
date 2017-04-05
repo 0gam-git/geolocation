@@ -22,6 +22,7 @@
 		<li>경도 : <span id="longitude"></span></li>
 	</ul>
 	<input id="btnStop" type="button" value="Detect drives done" />
+	<input id="clear" type="button" value="clear markers" />
 	<br />
 
 	<div id="google_map" style="width: 100%; height: 100%;"></div>
@@ -29,34 +30,46 @@
 
 </body>
 <script type="text/javascript">
-	$(document).ready(
-			function() {
+	$(document).ready(function() {
+		var flag = false;
 
-				if (navigator.geolocation) {
+		$('#clear').click(function() {
+			Map.prototype.clearMarkers();
+		});
 
-					var id = navigator.geolocation.watchPosition(function(pos) {
-						var latitude = pos.coords.latitude;
-						var longitude = pos.coords.longitude;
+		if (navigator.geolocation) {
 
-						$('#latitude').html(latitude);
-						$('#longitude').html(longitude);
+			var id = navigator.geolocation.watchPosition(function(pos) {
+				var latitude = pos.coords.latitude;
+				var longitude = pos.coords.longitude;
 
-						var mapElement = $("#modal_map");
-						google.maps.event.addDomListener(window, 'load',
-								Map.prototype.initializeGoogleMap(latitude,
-										longitude));
+				$('#latitude').html(latitude);
+				$('#longitude').html(longitude);
 
-						mapElement.show('slow');
-					});
+				var myLatlng = {
+					lat : latitude,
+					lng : longitude
+				};
 
-					// 버튼 클릭으로 감시를 중지
-					$('#btnStop').click(function() {
-						navigator.geolocation.clearWatch(id);
-					});
+				if (flag) {
+					Map.prototype.addMarker(myLatlng);
+
 				} else {
-					alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-				}
+					flag = true;
 
+					Map.prototype.initializeGoogleMap(myLatlng);
+
+				}
 			});
+
+			// 버튼 클릭으로 감시를 중지
+			$('#btnStop').click(function() {
+				navigator.geolocation.clearWatch(id);
+			});
+		} else {
+			alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+		}
+
+	});
 </script>
 </html>

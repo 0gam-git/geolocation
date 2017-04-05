@@ -25,29 +25,28 @@
 
 </body>
 <script type="text/javascript">
-	$(document).ready(
-			function() {
+	$(document).ready(function() {
 
-				if (navigator.geolocation) {
-					//위치 정보를 얻기
-					navigator.geolocation.getCurrentPosition(function(pos) {
-						var latitude = pos.coords.latitude;
-						var longitude = pos.coords.longitude;
+		if (navigator.geolocation) {
+			//위치 정보를 얻기
+			navigator.geolocation.getCurrentPosition(function(pos) {
+				var latitude = pos.coords.latitude;
+				var longitude = pos.coords.longitude;
 
-						$('#latitude').html("위도 : " + latitude);
-						$('#longitude').html("경도 : " + longitude);
+				$('#latitude').html("위도 : " + latitude);
+				$('#longitude').html("경도 : " + longitude);
 
-						var mapElement = $("#modal_map");
-						google.maps.event.addDomListener(window, 'load',
-								Map.prototype.initializeGoogleMap(latitude,
-										longitude));
+				var myLatlng = {
+					lat : latitude,
+					lng : longitude
+				};
 
-						mapElement.show('slow');
-					});
-				} else {
-					alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-				}
-
+				Map.prototype.initializeGoogleMap(myLatlng);
 			});
+		} else {
+			alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+		}
+
+	});
 </script>
 </html>

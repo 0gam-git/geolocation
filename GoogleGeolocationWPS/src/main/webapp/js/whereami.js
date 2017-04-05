@@ -35,24 +35,24 @@ function whereami(elt) {
 
 	// geolocation 요청이 성공하면 이 함수가 호출된다.
 	function success(pos) {
-		
+
 		var latitude = pos.coords.latitude;
 		var longitude = pos.coords.longitude;
 
-		var mapElement = $("#modal_map");
-		google.maps.event.addDomListener(window, 'load',
-				Map.prototype.initializeGoogleMap(latitude,
-						longitude));
+		var myLatlng = {
+			lat : latitude,
+			lng : longitude
+		};
 
-		mapElement.show('slow');
+		Map.prototype.initializeGoogleMap(myLatlng);
 
 		console.log(pos); // [디버깅] Position 객체 내용 확인
 
 		// 항상 가져올 수 있는 필드들이다. timestamp는 coords 객체 내부에 있지 않고,
 		// 외부에서 가져오는 필드라는 점에 주의하다.
 		var msg = "당신은 " + new Date(pos.timestamp).toLocaleString() + "에 "
-				+ " 위도 " + latitude + " 경도 " + longitude
-				+ "에서 " + " 약 " + pos.coords.accuracy + " 미터 떨어진 곳에 있습니다.";
+				+ " 위도 " + latitude + " 경도 " + longitude + "에서 " + " 약 "
+				+ pos.coords.accuracy + " 미터 떨어진 곳에 있습니다.";
 
 		// 해당 기기가 고도 (altitude)를 반환하면, 해당 정보를 추가한다.
 		if (pos.coords.altitude) {

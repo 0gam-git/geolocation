@@ -23,18 +23,18 @@
 	<input type="hidden" id="longitude" value="${longitude}" />
 </body>
 <script type="text/javascript">
-	$(document).ready(
-			function() {
-				// google setting
-				var latitude = $("#latitude").val();
-				var longitude = $("#longitude").val();
+	$(document).ready(function() {
+		// google setting
+		var latitude = $("#latitude").val();
+		var longitude = $("#longitude").val();
 
-				var mapElement = $("#modal_map");
-				google.maps.event.addDomListener(window, 'load', Map.prototype
-						.initializeGoogleMap(latitude, longitude));
+		var myLatlng = {
+			lat : latitude,
+			lng : longitude
+		};
 
-				mapElement.show('slow');
+		Map.prototype.initializeGoogleMap(myLatlng);
 
-			});
+	});
 </script>
 </html>
