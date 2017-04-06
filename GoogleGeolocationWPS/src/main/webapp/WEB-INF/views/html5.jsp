@@ -16,6 +16,9 @@
 	src="https://maps.google.com/maps/api/js?key=AIzaSyBL2BXy9dE5NdOTkfYBwENB4Z7Lx6E5GHw"></script>
 </head>
 <body>
+	<a href="${contextPath}/html5/detail">detail</a>
+	<a href="${contextPath}/html5/watch">watch</a>
+
 	<h1>HTML5 Geolocation API</h1>
 
 	<p id="latitude">${latitude}</p>

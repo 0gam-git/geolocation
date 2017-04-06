@@ -18,6 +18,9 @@
 </head>
 
 <body>
+	<a href="${contextPath}/html5/detail">detail</a>
+	<a href="${contextPath}/html5/watch">watch</a>
+
 	<h1>HTML5 Geolocation API - detail</h1>
 
 	<h4 id="myLocationInfo"></h4>
