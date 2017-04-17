@@ -25,6 +25,25 @@
 	<p id="longitude">${longitude}</p>
 	<div id="google_map" style="width: 100%; height: 100%;"></div>
 
+	<ul>
+		<li class='select2-selection__choice " + name + "'>
+
+			<table>
+				<tr>
+					<td><img src='dist/img/user2-160x160.jpg' class='img-circle'
+						alt='User Image'
+						style='width: 50px; height: 50px; margin-left: 5px; margin-bottom: 3px'>
+
+					</td>
+				</tr>
+				<tr>
+					<td>name</td>
+				</tr>
+			</table>
+
+		</li>
+	</ul>
+
 
 </body>
 <script type="text/javascript">

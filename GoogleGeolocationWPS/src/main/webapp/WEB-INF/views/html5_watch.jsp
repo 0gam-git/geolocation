@@ -42,7 +42,7 @@
 
 		if (navigator.geolocation) {
 
-			var id = navigator.geolocation.watchPosition(function(pos) {
+			navigator.geolocation.watchPosition(function(pos) {
 				var latitude = pos.coords.latitude;
 				var longitude = pos.coords.longitude;
 
