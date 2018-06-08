@@ -25,7 +25,7 @@ import com.urong.geolocation.structure.WifiAccessPoints;
  */
 @Controller
 public class HomeController {
-	
+
 	@RequestMapping(value = "/google/wps/multi")
 	public ModelAndView callGoogleWPS(ModelAndView mav, HttpServletRequest req)
 			throws JsonParseException, JsonMappingException, IOException {
